@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
     <%- include("./layouts/sidebar") %>
@@ -22,17 +23,18 @@
     <p>
         <strong>Status:</strong>
         <% if (bookinstance.status === 'Available') { %>
-            <span class="text-success"><%= bookinstance.status %> </span>
+            <span class="text-success"><%= val.status %> </span>
         <% } else if (bookinstance.status === 'Maintenance') { %>
-            <span class="text-danger"><%= bookinstance.status %></span>
+            <span class="text-danger"><%= val.status %></span>
         <% } else { %>
-            <span class="text-warning"><%= bookinstance.status %></span>
+            <span class="text-warning"><%= val.status %></span>
         <% } %>
-
-        <% if bookinstance.status !== 'Available' { %>
-            <p>
-                <strong>Due back: <%= bookinstance.due_back %></strong>
-            </p>
+        <p><strong>Imprint</strong> <%= val.imprint %></p>
+        <% if (bookinstance.status !== "available") { %>
+            <span>
+                <strong>Due Back: </strong>
+                (Due: <%= val.due_back_formatted %>)
+            </span>
         <% } %>
     </p>
 </body>

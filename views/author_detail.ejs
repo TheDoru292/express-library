@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <%- include("./layouts/sidebar") %>
+    <h1>Author: <%= author.name %></h1>
+    <p><%= author.date_of_birth %> - <%= author.date_of_death %></p>
+
+    <div style="margin-left: 20px; margin-top: 20px;">
+        <h4>Books</h4>
+
+        <dl>
+            <% console.log(author_books) %>
+            <% for (const book of author_books) { %>
+                <dt>
+                    <a href="<%= book.url %>"><%= book.title %></a>
+                </dt>
+                <dd>
+                    <p><%= book.summary %></p>
+                </dd>
+            <% } %>
+        </dl>
+    </div>
+</body>
+</html>

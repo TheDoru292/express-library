@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    h1 #{title}: #{bookinstance._id}
+    p #{bookinstance.book.title}
+
+    p Do you really want to delete this Book Instance?
+
+    form(action='' method="POST")
+        div.form-group
+            button.btn.btn-primary(type='submit') Submit

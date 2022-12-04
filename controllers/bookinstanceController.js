@@ -127,7 +127,15 @@ exports.bookinstance_delete_get = (req, res, next) => {
 };
 
 // Handle BookInstance delete on POST.
-exports.bookinstance_delete_post = (req, res) => {};
+exports.bookinstance_delete_post = (req, res, next) => {
+  BookInstance.findByIdAndRemove({ _id: req.params.id }, {}, (err) => {
+    if (err) {
+      return next(err);
+    }
+
+    res.redirect("/catalog/bookinstances");
+  });
+};
 
 // Display BookInstance update form on GET.
 exports.bookinstance_update_get = (req, res) => {

@@ -116,9 +116,6 @@ exports.bookinstance_delete_get = (req, res, next) => {
       if (bookinstance == null) {
       }
 
-      console.log(bookinstance);
-      console.log(bookinstance.book);
-
       res.render("bookinstance_delete", {
         title: `Delete BookInstance`,
         bookinstance: bookinstance,
